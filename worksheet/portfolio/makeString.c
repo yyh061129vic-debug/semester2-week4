@@ -1,19 +1,37 @@
-
 /*
-Name:
-Student ID:
+Name:Yuhang Yang
+Student ID:201986819
 */
 
 #include <stdio.h>
 #include <string.h>
 
-int main( int argc, char **argv ) {
+int main(int argc, char **argv) {
 
-    // define appropriate data to hold your answer
+    char buffer[100] = "";
 
-    // process the command-line data using appropriate string functions
+    /* check number of arguments (1–10) */
+    if (argc < 2 || argc > 11) {
+        return 0;
+    }
 
-    printf("%s\n",buffer); // use only this single print statement in your submitted code
+    for (int i = 1; i < argc; i++) {
+
+        /* check argument length (1–4 characters) */
+        int len = strlen(argv[i]);
+        if (len < 1 || len > 4) {
+            return 0;
+        }
+
+        strcat(buffer, argv[i]);
+
+        /* add '-' between arguments */
+        if (i < argc - 1) {
+            strcat(buffer, "-");
+        }
+    }
+
+    printf("%s\n", buffer);
 
     return 0;
 }
